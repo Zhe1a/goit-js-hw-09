@@ -2,9 +2,11 @@ const start = document.querySelector('button[data-start]');
 const endStop = document.querySelector('button[data-stop]');
 const body = document.querySelector('body');
 
-start.disabled = false
-endStop.disabled = true
-let timeId = null
+let timeId = null;
+const INTERVAL_DELAY = 1000;
+start.disabled = false;
+endStop.disabled = true;
+
 
 
 function getRandomHexColor() {
@@ -15,31 +17,20 @@ function getRandomHexColor() {
 }
 
 
-start.addEventListener('click',button);
+start.addEventListener('click', button);
 
 function button() {
-    timeId = setInterval(timer,1000)
+    timeId = setInterval(timer,INTERVAL_DELAY)
 start.disabled = true
 endStop.disabled = false
 }
 
-
-
 endStop.addEventListener('click',endColorInterval);
 
 function endColorInterval() {
+
     start.disabled = false
     endStop.disabled = true
-    setInterval(timeId)
+    clearInterval(timeId)
 }
 
-
-
-
-
-
-
-
-
-  // console.log(params.target.textContent);
-// console.log(params.target.dataset.start);
