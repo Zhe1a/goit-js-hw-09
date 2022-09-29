@@ -4,8 +4,8 @@ const body = document.querySelector('body');
 
 let timeId = null;
 const INTERVAL_DELAY = 1000;
-start.disabled = false;
-endStop.disabled = true;
+// start.disabled = false;
+// endStop.disabled = true;
 
 
 
@@ -17,9 +17,9 @@ function getRandomHexColor() {
 }
 
 
-start.addEventListener('click', button);
+start.addEventListener('click', startColorInterval);
 
-function button() {
+function startColorInterval() {
     timeId = setInterval(timer,INTERVAL_DELAY)
 start.disabled = true
 endStop.disabled = false
@@ -28,9 +28,10 @@ endStop.disabled = false
 endStop.addEventListener('click',endColorInterval);
 
 function endColorInterval() {
-
+console.log("string");
     start.disabled = false
     endStop.disabled = true
     clearInterval(timeId)
 }
+console.log("string");
 
